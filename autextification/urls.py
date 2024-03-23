@@ -3,5 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.predictor, name = 'predictor'),
-    path('result', views.formInfo, name = 'result'),
+    path('/main/result', views.formInfo, name = 'result'),
+    path('main/', views.main_page, name='main_page'),  # Add this URL pattern
+
 ]

@@ -12,6 +12,9 @@ vectorizer = load('./savedModels/vectorizer.joblib')
 print(type(vectorizer))
 
 def predictor(request):
+    return render(request, 'predictor.html')
+
+def main_page(request):
     return render(request, 'main.html')
 
 def formInfo(request):
