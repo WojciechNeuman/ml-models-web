@@ -14,16 +14,12 @@ print(type(vectorizer))
 def predictor(request):
     return render(request, 'predictor.html')
 
-def main_page(request):
-    return render(request, 'main.html')
+def autextification_page(request):
+    return render(request, 'autextification.html')
 
-def formInfo(request):
+def autextification_result(request):
     text = request.GET['text_in_english']
     # need stop engine wait stops would Check safe
-
-    print(f'{text} XYZ')
-    print(type(text))
-
 
     x_test = pd.Series([text])
 
@@ -38,4 +34,4 @@ def formInfo(request):
     else:
         y_pred = 'Computer'
 
-    return render(request, 'result.html', {'result': y_pred})
+    return render(request, 'autextification_result.html', {'result': y_pred})
