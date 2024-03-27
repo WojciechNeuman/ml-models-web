@@ -50,59 +50,39 @@ def digit_recognizer_result(request):
         if 'image' in request.FILES:
             # Get the uploaded file from request.FILES
             uploaded_image = request.FILES['image']
-            print(f"Type: {type(uploaded_image)}")
-            # Perform further processing with the uploaded image
-            pil_image = Image.open(uploaded_image)
             
-            # Convert the image to grayscale
+            pil_image = Image.open(uploaded_image)
+
             grayscale_image = pil_image.convert('L')
 
-            # Resize the image to 28x28 pixels
-            resized_image = grayscale_image.resize((28, 28))
+            final_image = grayscale_image.resize((28, 28))
 
-            # Convert the image to black and white
-            threshold = 100  # Adjust the threshold as needed
-            bw_image = resized_image.point(lambda x: 0 if x < threshold else 255, '1')
 
-            # Save the black and white image
-            current_directory = os.getcwd()
-            image_path = os.path.join(current_directory, 'bw_image.jpg')
-            bw_image.save(image_path, format='JPEG')  # Change the format as needed
+            df_image = image_to_dataframe(final_image)
+
+            y_pred = model_digit.predict(df_image)[0]
+
         else:
             # Handle the case where 'image' key is not found in request.FILES
             print("No image file uploaded")
     else:
         # Handle the case where the form was not submitted using POST method
         print("Form not submitted using POST method")
-    # text = request.GET['text_in_english']
-    # # need stop engine wait stops would Check safe
 
-    # x_test = pd.Series([text])
-
-    # y_pred = vectorizer.transform(x_test)
-
-    # print(y_pred)
-
-    # y_pred = model.predict(y_pred)
-
-    # if y_pred[0] == 0:
-    #     y_pred = 'Human'
-    # else:
-    #     y_pred = 'Computer'
-
-    y_pred = 1
 
     return render(request, 'digit_recognizer_result.html', {'result': y_pred})
 
 
 def image_to_dataframe(image):
-    # Convert the PIL Image object to a list of pixel values
+    # convert image to list of pixels
     pixel_values = list(image.getdata())
 
-    # Create a DataFrame with one row and 784 columns (28x28 pixels)
-    df = pd.DataFrame([pixel_values], columns=[f'pixel{i+1}' for i in range(784)])
+    # Dataframe with column names corresponding to the column names of a model
+    df = pd.DataFrame([pixel_values], columns=[f'pixel{i+1}' for i in range(784)]) 
 
-    # Scale the pixel values from 0 to 255 to a range from 0.0 to 1.0
-    df = df / 255.0
+    
+    # switch white images with black numbers to black with white numbers
+    if df.values.mean() > 100:
+        df = 255.0 - df
 
     return df
