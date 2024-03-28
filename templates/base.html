@@ -9,6 +9,21 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    {% block body %}{% endblock %}
+    <div class="container">
+        <div class="navbar">
+            <img src="../static/images/logo2.png" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'predictor' %}">HOME</a></li>
+                    <li><a href="">ABOUT</a></li>
+                </ul>
+            </nav>
+            <img src="../static/images/menu.png" class="menu-icon">
+        </div>
+    
+        {% block body %}
+        <!-- inside of the website here -->
+        {% endblock %}
+    </div>
 </body>
 </html>

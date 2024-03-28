@@ -7,28 +7,21 @@
 {% endblock %} 
 
 {% block body %}
-<div class="container">
-    <div class="navbar">
-        <img src="../static/images/logo2.png" class="logo">
-        <nav>
-            <ul>
-                <li><a href="{% url 'predictor' %}">HOME</a></li>
-                <li><a href="">ABOUT</a></li>
-            </ul>
-        </nav>
-        <img src="../static/images/menu.png" class="menu-icon">
-    </div>
-    <div class="content">
-        <h1 style="text-align: center;">Digit recognizer</h1>
-    
-        <div class="form">
-            <form action="result" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <input type="file" name="image" accept="image/*" required><br>
-                <input type="submit" value="Get the classification of your number">
-            </form>
-        </div>
-    </div>
 
+<div class="content">
+    <h1 style="text-align: center;">Digit recognizer</h1>
+
+    {% if result %}
+    <h1>The number you have provided is a {{result}}</h1>
+    {% endif %}
+
+    <div class="form">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" accept="image/*" required><br>
+            <input type="submit" value="Get the classification of your number">
+        </form>
+    </div>
 </div>
+
 {% endblock %}
