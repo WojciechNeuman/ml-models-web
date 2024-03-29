@@ -15,6 +15,9 @@ model_digit = load('./savedModels/sgd_digits.joblib')
 def predictor(request):
     return render(request, 'predictor.html')
 
+def about(request):
+    return render(request, 'about.html')
+
 def autextification_page(request):
     if request.method == 'POST':
         text = request.POST['text_in_english']
