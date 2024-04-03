@@ -11,18 +11,26 @@
 <body>
     <div class="container">
         <div class="navbar">
-            <a href="{% url 'predictor' %}"><img src="../static/images/logo2.png" class="logo"></a>
+            <a href="{% url 'predictor' %}"><img src="../static/images/logo_ml_models_2.png" class="logo"></a>
             <nav>
                 <ul>
                     <li><a href="{% url 'predictor' %}">HOME</a></li>
                     <li><a href="{% url 'about_section' %}">ABOUT</a></li>
                 </ul>
             </nav>
-            <img src="../static/images/menu.png" class="menu-icon">
+            <div class="dropdown">
+                <button onclick="toggleDropdown()" class="menu-icon">
+                    <img src="../static/images/menu.png">
+                </button>
+                <div id="dropdown-content" class="dropdown-content">
+                    <a href="{% url 'autextification_page' %}">AuTexTification</a>
+                    <a href="{% url 'digit_recognizer_page' %}">Digit Recognizer</a>
+                </div>
+            </div>
         </div>
     
         {% block body %}
-        <!-- inside of the website here -->
+        <!-- inside of the website here -->r
         {% endblock %}
     </div>
 </body>
