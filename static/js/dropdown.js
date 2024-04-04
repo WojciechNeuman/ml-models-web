@@ -15,3 +15,9 @@ window.onclick = function(event) {
         }
     }
 }
+ 
+let dropdownMenu = document.getElementById("dropdownMenu");
+
+function toggleMenu() {
+    dropdownMenu.classList.toggle("open-menu")
+} 

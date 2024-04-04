@@ -17,14 +17,30 @@
                     <li><a href="{% url 'predictor' %}">HOME</a></li>
                     <li><a href="{% url 'about_section' %}">ABOUT</a></li>
                 </ul>
-            </nav>
-            <div class="dropdown">
-                <button onclick="toggleDropdown()" class="menu-icon">
-                    <img src="../static/images/menu.png">
-                </button>
-                <div id="dropdown-content" class="dropdown-content">
-                    <a href="{% url 'autextification_page' %}">AuTexTification</a>
-                    <a href="{% url 'digit_recognizer_page' %}">Digit Recognizer</a>
+                <!-- <div class="dropdown">
+                    <button onclick="toggleDropdown()" class="menu-icon">
+                        <img src="../static/images/menu.png">
+                    </button>
+                    <div id="dropdown-content" class="dropdown-content">
+                        <a href="{% url 'autextification_page' %}">AuTexTification</a>
+                        <a href="{% url 'digit_recognizer_page' %}">Digit Recognizer</a>
+                    </div>
+                </div> -->
+            </nav>    
+            <img src="../static/images/menu.png" class="menu-icon" onclick="toggleMenu()">  
+            <div class="dropdown-button" id="dropdownMenu">
+                <div class="dropdown-menu">
+                    <a href="{% url 'autextification_page' %}" class="dropdown-menu-link">
+                        <img src="../static/images/menu.png" class="menu-icon">
+                        <p>AuTexTification</p>
+                        <span>></span>
+                    </a>
+                    <hr>
+                    <a href="{% url 'digit_recognizer_page' %}" class="dropdown-menu-link">
+                        <img src="../static/images/menu.png" class="menu-icon">
+                        <p>Digit Recognizer</p>
+                        <span>></span>
+                    </a>
                 </div>
             </div>
         </div>
