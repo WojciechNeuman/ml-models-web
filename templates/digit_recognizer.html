@@ -18,7 +18,11 @@
     <div class="form">
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="file" name="image" accept="image/*" required><br>
+            <br>
+            <input type="file" id="uploadImageButton" accept="image/*" required>
+            <label for="uploadImageButton"><i class="fa-solid fa-upload"></i> Upload a digit image</label>
+            <br>
+            <br>
             <input type="submit" value="Get the classification of your number">
         </form>
     </div>

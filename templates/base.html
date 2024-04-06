@@ -23,13 +23,13 @@
             <div class="dropdown-wrap" id="dropdownWrap">
                 <div class="dropdown-menu">
                     <a href="{% url 'autextification_page' %}" class="dropdown-menu-link">
-                        <img src="../static/images/menu.png" class="menu-icon">
+                        <!-- <img src="../static/images/menu.png" class="menu-icon"> -->
                         <p>AuTexTification</p>
                         <span>></span>
                     </a>
                     <hr>
                     <a href="{% url 'digit_recognizer_page' %}" class="dropdown-menu-link">
-                        <img src="../static/images/menu.png" class="menu-icon">
+                        <!-- <img src="../static/images/menu.png" class="menu-icon"> -->
                         <p>Digit Recognizer</p>
                         <span>></span>
                     </a>
@@ -41,5 +41,12 @@
         <!-- inside of the website here -->r
         {% endblock %}
     </div>
+    <script>
+        let dropdownWrap = document.getElementById("dropdownWrap");
+
+        function toggleMenu(){
+            dropdownWrap.classList.toggle("open-menu");
+        }
+    </script>
 </body>
 </html>

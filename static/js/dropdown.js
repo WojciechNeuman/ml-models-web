@@ -24,14 +24,14 @@ function toggleDropdown() {
 //     dropdownWrap.classList.toggle("open-menu");
 // } 
 
-function toggleMenu() {
-    let dropdownWrap = document.getElementById("dropdownWrap");
-    console.log("HALO");
-    console.log("Halo" + dropdownWrap);
-    dropdownWrap.classList.toggle("open-menu");
-}
+// function toggleMenu() {
+//     let dropdownWrap = document.getElementById("dropdownWrap");
+//     console.log("HALO");
+//     console.log("Halo" + dropdownWrap);
+//     dropdownWrap.classList.toggle("open-menu");
+// }
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Attach click event listener to the menu icon
-    document.querySelector(".menu-icon").addEventListener("click", toggleMenu);
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     // Attach click event listener to the menu icon
+//     document.querySelector(".menu-icon").addEventListener("click", toggleMenu);
+// });
